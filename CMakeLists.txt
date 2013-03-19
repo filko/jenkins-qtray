@@ -5,8 +5,12 @@ find_package(Qt4 REQUIRED)
 
 set(QT_USE_QTNETWORK TRUE)
 
+set(QOBJECTS Task)
+
+foreach(qobject ${QOBJECTS})
+  set(headers ${headers} src/${qobject}.hh)
+endforeach(qobject)
 file(GLOB sources src/*.cc)
-file(GLOB headers src/*.hh)
 
 set(jenkins-qtray_SOURCES ${sources})
 set(jenkins-qtray_HEADERS ${headers})
